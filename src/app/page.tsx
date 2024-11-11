@@ -2,15 +2,23 @@ import { NavbarDemo } from "@/components/navbar";
 import { HomeCon } from "@/components/home";
 import Image from "next/image";
 import { About } from "@/components/about";
+import { Skills } from "@/components/skils";
+import { Services } from "@/components/services";
 
 export default function Home() {
   return (
     <>
-      <NavbarDemo />
+      <div className="bg-slate-950">
+        <NavbarDemo />
 
-      <HomeCon />
+        <HomeCon />
 
-      <About />
+        <About />
+
+        <Services />
+
+        <Skills />
+      </div>
     </>
   );
 }

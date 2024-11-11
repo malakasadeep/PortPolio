@@ -61,7 +61,7 @@ export function About() {
       <button className="p-[3px] relative mt-6">
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
         <div className="flex items-center px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white text-xl hover:bg-transparent">
-          <span>Download My CV</span>
+          <span>Download CV</span>
           <Lottie
             loop
             animationData={lottieAnimation}
