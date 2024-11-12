@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Malaka Sadeep | Software Engineering Portfolio",
     description:
       "Discover the projects and skills of Malaka Sadeep, a software engineering undergraduate from SLIIT.",
-    url: "https://http://sadeeppgm.live/",
+    url: "https://sadeeppgm.live/",
     type: "website",
   },
   twitter: {
@@ -60,7 +60,7 @@ export default function RootLayout({
             name: "Malaka Sadeep",
             jobTitle: "Software Engineering Undergraduate",
             affiliation: "SLIIT",
-            url: "https://http://sadeeppgm.live/",
+            url: "https://sadeeppgm.live/",
             address: {
               "@type": "PostalAddress",
               addressCountry: "Sri Lanka",
