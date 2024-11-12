@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/util";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import { createNoise3D } from "simplex-noise";
 import { motion } from "framer-motion";
 
@@ -41,11 +41,7 @@ export const Vortex = (props: VortexProps) => {
   let tick = 0;
   const noise3D = createNoise3D();
   let particleProps = new Float32Array(particlePropsLength);
-  let center: [number, number] = [0, 0];
-
-  const HALF_PI: number = 0.5 * Math.PI;
-  const TAU: number = 2 * Math.PI;
-  const TO_RAD: number = Math.PI / 180;
+  const center: [number, number] = [0, 0];
 
   const rand = (n: number): number => n * Math.random();
   const randRange = (n: number): number => n - rand(2 * n);
@@ -56,7 +52,7 @@ export const Vortex = (props: VortexProps) => {
   const lerp = (n1: number, n2: number, speed: number): number =>
     (1 - speed) * n1 + speed * n2;
 
-  const setup = () => {
+  const setup = useCallback(() => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (canvas && container) {
@@ -68,7 +64,7 @@ export const Vortex = (props: VortexProps) => {
         draw(canvas, ctx);
       }
     }
-  };
+  }, []);
 
   const initParticles = () => {
     tick = 0;
@@ -126,7 +122,8 @@ export const Vortex = (props: VortexProps) => {
         tick * zOff
       ) *
       noiseSteps *
-      TAU;
+      Math.PI *
+      2;
 
     const vx = lerp(particleProps[i + 2], Math.cos(n), 0.5);
     const vy = lerp(particleProps[i + 3], Math.sin(n), 0.5);
@@ -233,7 +230,7 @@ export const Vortex = (props: VortexProps) => {
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
-  }, [setup, resize]);
+  }, [setup]);
 
   return (
     <div

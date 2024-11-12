@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/util";
-import { useRef } from "react";
+import { useRef, CSSProperties } from "react";
 
 export const GlareCard = ({
   children,
@@ -25,7 +25,9 @@ export const GlareCard = ({
       y: 0,
     },
   });
-  const containerStyle = {
+
+  // Define the type as CSSProperties instead of any
+  const containerStyle: CSSProperties = {
     "--m-x": "50%",
     "--m-y": "50%",
     "--r-x": "0deg",
@@ -38,9 +40,9 @@ export const GlareCard = ({
     "--radius": "8px",
     "--easing": "ease",
     "--transition": "var(--duration) var(--easing)",
-  } as any;
+  } as CSSProperties;
 
-  const backgroundStyle = {
+  const backgroundStyle: CSSProperties = {
     "--step": "5%",
     "--foil-svg": `url("data:image/svg+xml,%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.99994 3.419C2.99994 3.419 21.6142 7.43646 22.7921 12.153C23.97 16.8695 3.41838 23.0306 3.41838 23.0306' stroke='white' stroke-width='5' stroke-miterlimit='3.86874' stroke-linecap='round' style='mix-blend-mode:darken'/%3E%3C/svg%3E")`,
     "--pattern": "var(--foil-svg) center/100% no-repeat",
@@ -51,17 +53,17 @@ export const GlareCard = ({
     "--shade":
       "radial-gradient( farthest-corner circle at var(--m-x) var(--m-y),rgba(255,255,255,0.1) 12%,rgba(255,255,255,0.15) 20%,rgba(255,255,255,0.25) 120% ) var(--bg-x) var(--bg-y)/300% no-repeat",
     backgroundBlendMode: "hue, hue, hue, overlay",
-  };
+  } as CSSProperties;
 
   const updateStyles = () => {
     if (refElement.current) {
       const { background, rotate, glare } = state.current;
-      refElement.current?.style.setProperty("--m-x", `${glare.x}%`);
-      refElement.current?.style.setProperty("--m-y", `${glare.y}%`);
-      refElement.current?.style.setProperty("--r-x", `${rotate.x}deg`);
-      refElement.current?.style.setProperty("--r-y", `${rotate.y}deg`);
-      refElement.current?.style.setProperty("--bg-x", `${background.x}%`);
-      refElement.current?.style.setProperty("--bg-y", `${background.y}%`);
+      refElement.current.style.setProperty("--m-x", `${glare.x}%`);
+      refElement.current.style.setProperty("--m-y", `${glare.y}%`);
+      refElement.current.style.setProperty("--r-x", `${rotate.x}deg`);
+      refElement.current.style.setProperty("--r-y", `${rotate.y}deg`);
+      refElement.current.style.setProperty("--bg-x", `${background.x}%`);
+      refElement.current.style.setProperty("--bg-y", `${background.y}%`);
     }
   };
 
@@ -112,8 +114,8 @@ export const GlareCard = ({
         isPointerInside.current = false;
         if (refElement.current) {
           refElement.current.style.removeProperty("--duration");
-          refElement.current?.style.setProperty("--r-x", `0deg`);
-          refElement.current?.style.setProperty("--r-y", `0deg`);
+          refElement.current.style.setProperty("--r-x", `0deg`);
+          refElement.current.style.setProperty("--r-y", `0deg`);
         }
       }}
     >
@@ -125,8 +127,8 @@ export const GlareCard = ({
         </div>
         <div className="w-full h-full grid [grid-area:1/1] mix-blend-soft-light [clip-path:inset(0_0_1px_0_round_var(--radius))] opacity-[var(--opacity)] transition-opacity transition-background duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] will-change-background [background:radial-gradient(farthest-corner_circle_at_var(--m-x)_var(--m-y),_rgba(255,255,255,0.8)_10%,_rgba(255,255,255,0.65)_20%,_rgba(255,255,255,0)_90%)]" />
         <div
-          className="w-full h-full grid [grid-area:1/1] mix-blend-color-dodge opacity-[var(--opacity)] will-change-background transition-opacity [clip-path:inset(0_0_1px_0_round_var(--radius))] [background-blend-mode:hue_hue_hue_overlay] [background:var(--pattern),_var(--rainbow),_var(--diagonal),_var(--shade)] relative after:content-[''] after:grid-area-[inherit] after:bg-repeat-[inherit] after:bg-attachment-[inherit] after:bg-origin-[inherit] after:bg-clip-[inherit] after:bg-[inherit] after:mix-blend-exclusion after:[background-size:var(--foil-size),_200%_400%,_800%,_200%] after:[background-position:center,_0%_var(--bg-y),_calc(var(--bg-x)*_-1)_calc(var(--bg-y)*_-1),_var(--bg-x)_var(--bg-y)] after:[background-blend-mode:soft-light,_hue,_hard-light]"
-          style={{ ...backgroundStyle }}
+          className="w-full h-full grid [grid-area:1/1] mix-blend-color-dodge opacity-[var(--opacity)] will-change-background transition-opacity [clip-path:inset(0_0_1px_0_round_var(--radius))] [background-blend-mode:hue_hue_hue_overlay] [background:var(--pattern),_var(--rainbow),_var(--diagonal),_var(--shade)] relative after:content-[''] after:grid-area-[inherit] after:bg-repeat-[inherit] after:bg-attachment-[inherit] after:bg-origin-[inherit] after:bg-clip-[inherit] after:bg-[inherit] after:mix-blend-exclusion after:[background-size:var(--foil-size),_200%_400%,_800%,_200%] after:[background-position:center,_0%_var(--bg-y),_calc(var(--bg-x)*_-1)_var(--bg-y),_0%_0%]"
+          style={backgroundStyle}
         />
       </div>
     </div>

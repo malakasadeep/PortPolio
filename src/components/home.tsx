@@ -18,8 +18,8 @@ export function HomeCon() {
     "Mobile Application Developer",
     "Web Application Developer",
   ];
-  const para = `I'm a passionate developer with expertise in creating beautiful and functional digital experiences. With a strong foundation in both frontend and backend technologies, I bring ideas to life through clean code and intuitive design.
-  `;
+  const para = `I am a passionate developer with expertise in creating beautiful and functional digital experiences. With a strong foundation in both frontend and backend technologies, I bring ideas to life through clean code and intuitive design.`;
+
   return (
     <BackgroundLines>
       <section className="flex min-h-screen bg-slate-950">
@@ -38,7 +38,7 @@ export function HomeCon() {
               <div className="text-left ml-32">
                 <h1 className="text-6xl font-extrabold tracking-tight md:text-7xl mb-4">
                   <div className="text-white">
-                    <div>Hi, I'm</div>
+                    <div>Hi, I&apos;m</div>
                   </div>
                   <div className="relative inline-block w-max">
                     <div className="absolute left-0 top-[1px] bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500">
@@ -73,7 +73,7 @@ export function HomeCon() {
                   <button className="p-[3px] relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
                     <div className="flex items-center px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white text-xl hover:bg-transparent">
-                      <span>Let's Connect</span>
+                      <span>Let&apos;s Connect</span>
                       <Lottie
                         loop
                         animationData={lottieAnimation}
