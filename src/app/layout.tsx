@@ -26,6 +26,8 @@ export const metadata: Metadata = {
     "portfolio",
     "undergraduate",
     "software development",
+    "malaka Sadeep",
+    "malakasadeep",
   ],
   openGraph: {
     title: "Malaka Sadeep | Software Engineering Portfolio",
@@ -50,6 +52,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta
+          name="google-site-verification"
+          content="_vSILSPJlkJINtTy1X2hY2rS1uj8QfemiOEDIGig1cc"
+        />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Malaka Sadeep" />
         <meta property="og:image" content="../assets/logo.png" />
