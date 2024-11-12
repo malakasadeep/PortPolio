@@ -28,17 +28,17 @@ export function About() {
       </h4>
       <div className="flex gap-8 mt-8 relative z-20">
         <GlareCard className="flex flex-col items-center justify-center">
-          <Award className="h-14 w-auto" />
+          <Award className="h-14 w-auto text-amber-100" />
           <p className="text-white font-bold text-xl mt-4">Experience</p>
           <p className="text-stone-400 font-light text-sm mt-2">2 Years</p>
         </GlareCard>
         <GlareCard className="flex flex-col items-center justify-center">
-          <CheckCircle className="h-12 w-auto" />
+          <CheckCircle className="h-12 w-auto text-amber-100" />
           <p className="text-white font-bold text-xl mt-4">Completed</p>
           <p className="text-stone-400 font-light text-sm mt-2">12+ Projects</p>
         </GlareCard>
         <GlareCard className="flex flex-col items-center justify-center">
-          <Users className="h-12 w-auto" />
+          <Users className="h-12 w-auto text-amber-100" />
           <p className="text-white font-bold text-xl mt-4">Support</p>
           <p className="text-stone-400 font-light text-sm mt-2">Online 24/7</p>
         </GlareCard>

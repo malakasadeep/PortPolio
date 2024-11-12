@@ -3,13 +3,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import img from "@/assets/logo.png";
+import img from "@/assets/mainIconsdark.svg";
 import { LampContainer } from "./ui/lamp";
 import { FlipWords } from "./ui/flip-words";
 import { BackgroundLines } from "./ui/background-lines";
 import Lottie from "react-lottie-player";
 import lottieAnimation from "@/assets/Animation - 1731322408129.json";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
+import { CoolMode } from "./ui/cool-mode";
 
 export function HomeCon() {
   const words = [
@@ -70,18 +71,20 @@ export function HomeCon() {
                   transition={{ delay: 0.7, duration: 0.8 }}
                   className="flex gap-4"
                 >
-                  <button className="p-[3px] relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-                    <div className="flex items-center px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white text-xl hover:bg-transparent">
-                      <span>Let&apos;s Connect</span>
-                      <Lottie
-                        loop
-                        animationData={lottieAnimation}
-                        play
-                        className="h-12 w-12 ml-4" // Adjust size and margin to fit your design
-                      />
-                    </div>
-                  </button>
+                  <CoolMode>
+                    <button className="p-[3px] relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+                      <div className="flex items-center px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white text-xl hover:bg-transparent">
+                        <span>Click Me</span>
+                        <Lottie
+                          loop
+                          animationData={lottieAnimation}
+                          play
+                          className="h-12 w-12 ml-4" // Adjust size and margin to fit your design
+                        />
+                      </div>
+                    </button>
+                  </CoolMode>
                 </motion.div>
               </div>
             </motion.div>
@@ -100,9 +103,9 @@ export function HomeCon() {
             <Image
               src={img}
               alt="Malaka Sadeep"
-              width={400}
-              height={400}
-              className="rounded-full relative z-10 animate-morph"
+              width={500}
+              height={500}
+              className=" relative z-10 animate-morph"
             />
           </motion.div>
         </div>

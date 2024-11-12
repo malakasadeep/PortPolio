@@ -73,7 +73,7 @@ export default function RootLayout({
             },
           })}
         </script>
-        <title>Malaka Sadeep</title>
+        <title>Malaka Sadeep | Software Engineering Undergraduate</title>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

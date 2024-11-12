@@ -34,7 +34,7 @@ export const MenuItem = ({
           "cursor-pointer transition-all duration-300 ease-in-out",
           isActive
             ? "bg-white text-black px-2 rounded-full translate-x-1"
-            : "text-neutral-700 dark:text-white"
+            : " text-white"
         )}
       >
         {item}
@@ -49,7 +49,7 @@ export const MenuItem = ({
         >
           <motion.div
             layoutId="active"
-            className="dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border shadow-xl"
+            className="bg-black backdrop-blur-sm rounded-2xl overflow-hidden border shadow-xl"
           >
             <div className="w-max h-full p-4">{children}</div>
           </motion.div>
@@ -69,7 +69,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border border-transparent dark:bg-black bg-white shadow-input flex justify-center space-x-4 px-8 py-6 "
+      className="relative rounded-full border border-transparent bg-black  shadow-input flex justify-center space-x-4 px-8 py-6 "
     >
       {children}
     </nav>
