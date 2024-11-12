@@ -8,7 +8,7 @@ import { LampContainer } from "./ui/lamp";
 import { FlipWords } from "./ui/flip-words";
 import { BackgroundLines } from "./ui/background-lines";
 import Lottie from "react-lottie-player";
-import lottieAnimation from "@/assets/Animation - 1731322408129.json";
+import lottieAnimation from "@/assets/hand.json";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
 import { CoolMode } from "./ui/cool-mode";
 
@@ -80,7 +80,7 @@ export function HomeCon() {
                           loop
                           animationData={lottieAnimation}
                           play
-                          className="h-12 w-12 ml-4" // Adjust size and margin to fit your design
+                          className=" w-12 h-auto ml-4" // Adjust size and margin to fit your design
                         />
                       </div>
                     </button>

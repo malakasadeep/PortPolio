@@ -70,3 +70,15 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .border-gradient-to-r {
+    border-image: linear-gradient(
+        to right,
+        var(--tw-gradient-from),
+        var(--tw-gradient-via),
+        var(--tw-gradient-to)
+      )
+      1;
+  }
+}

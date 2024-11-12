@@ -8,7 +8,7 @@ import lottieAnimation from "@/assets/Animation - 1731347439900.json";
 
 export function About() {
   return (
-    <div className="h-[45rem] relative w-full bg-slate-950 flex flex-col items-center justify-center overflow-hidden rounded-md">
+    <div className="h-[48rem] relative w-full bg-slate-950 flex flex-col items-center justify-center overflow-hidden rounded-md">
       <div className="w-full absolute inset-0 h-screen">
         <SparklesCore
           id="tsparticlesfullpage"

@@ -83,7 +83,7 @@ export function Services(): JSX.Element {
   ];
 
   return (
-    <div className="min-h-screen py-14 bg-slate-950">
+    <div className="h-[40rem] py-14 bg-slate-950">
       <div className="container mx-auto px-20">
         <div className="text-center mb-4">
           <h2 className="text-3xl font-semibold text-center text-white relative z-20">
