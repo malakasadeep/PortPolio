@@ -3,6 +3,7 @@ import { HomeCon } from "@/components/home";
 import { About } from "@/components/about";
 import { Skills } from "@/components/skils";
 import { Services } from "@/components/services";
+import { Projects } from "@/components/projects";
 
 export default function Home() {
   return (
@@ -17,6 +18,8 @@ export default function Home() {
         <Services />
 
         <Skills />
+
+        <Projects />
       </div>
     </>
   );

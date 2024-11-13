@@ -20,7 +20,7 @@ function Navbar({ className }: { className?: string }) {
 
   return (
     <div
-      className={cn("fixed top-10 inset-x-0 max-w-6xl mx-auto z-50", className)}
+      className={cn("fixed top-10 inset-x-0 max-w-6xl mx-auto z-30", className)}
     >
       <div className="flex items-center justify-between px-8 py-1 bg-black shadow-md rounded-full">
         {/* Logo and Name */}
