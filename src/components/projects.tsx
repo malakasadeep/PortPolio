@@ -15,6 +15,8 @@ import {
   Smartphone,
   Code,
   Monitor,
+  Flame,
+  Bot,
 } from "lucide-react";
 
 // Define interfaces for type safety
@@ -40,19 +42,18 @@ interface ProjectCardProps {
 const projectsData: Project[] = [
   {
     id: 1,
-    title: "Tourism Management System",
+    title: "Tourism Management System - TourCraft",
     shortDesc:
       "Full-stack MERN application for managing tourism services and bookings",
-    image: "/projectimg/Frame1.png",
+    image: "/projectimg/Frame3.png",
     longDesc:
-      "A comprehensive tourism management platform built with the MERN stack, enabling travel agencies to manage bookings, packages, and customer interactions efficiently.",
+      "The Tourist Management System, developed as a collaborative project, is designed to revolutionize the travel experience by offering a centralized, user-friendly platform. Tourists can seamlessly organize and book tours, accommodations, vehicles, restaurants, and train tickets, while accessing real-time updates and personalized recommendations. Service providers, including tour agencies, hotel owners, and transport operators, benefit from streamlined management tools, analytics, and increased digital exposure.  Built using a modern tech stack featuring React.js, Node.js, MongoDB, and Firebase, the platform prioritizes security, scalability, and user-centric functionality. Its features include role-based access control, robust authentication with JWT, and integrations with payment systems to facilitate smooth transactions. This innovative solution addresses inefficiencies in the tourism industry, enhances user experience, and aligns with Sri Lanka's goal of becoming a top global tourist destination.",
     keyFeatures: [
-      "User authentication and authorization",
-      "Dynamic package booking system",
-      "Real-time availability checking",
-      "Payment integration",
-      "Admin dashboard for analytics",
-      "Review and rating system",
+      "Centralized Booking: One-stop platform for tours, hotels, vehicles, and more.",
+      "User-Friendly Interface: Search, filter, and book with ease.",
+      "Role-Based Access: Separate features for tourists, admins, and providers.",
+      "Feedback System: Rate and review services for continuous improvement.",
+      "Scalable Design: Handles increasing users and services effortlessly.",
     ],
     technologies: [
       "MongoDB",
@@ -61,23 +62,26 @@ const projectsData: Project[] = [
       "Node.js",
       "Redux",
       "Tailwind CSS",
+      "Firebase",
     ],
-    githubLink: "https://github.com/yourusername/tourism-management",
+    githubLink:
+      "https://github.com/malakasadeep/ITP24_B9_09_Tourism_Management_System-MERN",
   },
   {
     id: 2,
-    title: "Sales Optimization App",
-    shortDesc: "MERN stack application for sales analytics and optimization",
-    image: "/projectimg/Frame2.png",
+    title: "Sales Optimization System - FashioNexus",
+    shortDesc:
+      "AI-powered sales forecasting and Optimization system for fashion retail businesses.",
+    image: "/projectimg/Frame3.png",
     longDesc:
-      "An intelligent sales optimization platform that helps businesses analyze sales data, predict trends, and optimize their sales strategies using advanced analytics.",
+      "FashioNexus is a comprehensive web-based solution for optimizing sales in the fashion retail industry. Using Python for machine learning models and Flask for prediction APIs, it provides real-time sales insights, automated inventory management, and detailed promotion analytics. Built with the MERN stack, the system ensures a user-friendly interface and seamless operations, helping businesses make data-driven decisions, streamline inventory, and enhance customer satisfaction.",
     keyFeatures: [
-      "Sales performance dashboard",
-      "Predictive analytics",
-      "Customer segmentation",
-      "Revenue forecasting",
-      "Integration with CRM systems",
-      "Automated reporting",
+      "AI-Driven Sales Insights: Predict sales trends using machine learning models for informed decision-making.",
+      "Real-Time Sales Forecasting: Utilize Flask-based APIs to deliver instant predictions.",
+      "Automated Inventory Management: Trigger reorder alerts or auto-place orders for stock shortages.",
+      "Promotion Analytics Dashboard: Analyze promotion effectiveness with real-time data visualization.",
+      "Order Fulfillment Tracking: Provide transparent updates on order statuses, enhancing customer satisfaction.",
+      "Secure User Management: Robust login and profile management features for multiple user roles",
     ],
     technologies: [
       "MongoDB",
@@ -85,40 +89,18 @@ const projectsData: Project[] = [
       "React",
       "Node.js",
       "Chart.js",
-      "Material UI",
+      "Python",
     ],
-    githubLink: "https://github.com/yourusername/sales-optimizer",
+    githubLink:
+      "https://github.com/malakasadeep/FashioNexus-Web-base-Sales-Optimization-Solution-for-Fashion-Retail",
   },
+
   {
     id: 3,
-    title: "Automotive Web App",
-    shortDesc: "MERN-based platform for automotive services and management",
-    image: "/projectimg/Frame3.png",
-    longDesc:
-      "A comprehensive automotive service management platform that connects vehicle owners with service providers and manages the entire service lifecycle.",
-    keyFeatures: [
-      "Service booking system",
-      "Vehicle maintenance tracking",
-      "Service provider directory",
-      "Real-time status updates",
-      "Service history management",
-      "Digital documentation",
-    ],
-    technologies: [
-      "MongoDB",
-      "Express",
-      "React",
-      "Node.js",
-      "Socket.io",
-      "Bootstrap",
-    ],
-    githubLink: "https://github.com/yourusername/automotive-app",
-  },
-  {
-    id: 4,
     title: "Clean Seas Mobile App",
-    shortDesc: "Flutter-based mobile app for ocean conservation",
-    image: "/projectimg/Frame1.png",
+    shortDesc:
+      "A mobile application built with Flutter and Firebase, focused on ocean conservation efforts and community engagement in keeping seas clean.",
+    image: "/projectimg/Frame3.png",
     longDesc:
       "A mobile application built with Flutter and Firebase, focused on ocean conservation efforts and community engagement in keeping seas clean.",
     keyFeatures: [
@@ -147,7 +129,8 @@ const TechIcon: React.FC<TechIconProps> = ({ tech }) => {
     React: <Code className="w-5 h-5" />,
     "Node.js": <Server className="w-5 h-5" />,
     Flutter: <Smartphone className="w-5 h-5" />,
-    Firebase: <Database className="w-5 h-5" />,
+    Firebase: <Flame className="w-5 h-5" />,
+    Python: <Bot className="w-5 h-5" />,
   };
 
   return (
@@ -161,7 +144,7 @@ const TechIcon: React.FC<TechIconProps> = ({ tech }) => {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <Dialog>
-      <DialogTrigger className="h-full">
+      <DialogTrigger className="h-auto">
         <div className="bg-slate-800 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl">
           <img
             src={project.image}

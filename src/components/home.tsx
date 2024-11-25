@@ -27,67 +27,52 @@ export function HomeCon() {
         {/* Left Side Content */}
         <div className="w-3/5 p-8 flex flex-col justify-center ">
           <LampContainer className="">
-            <motion.div
-              initial={{ opacity: 0.5, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.3,
-                duration: 0.8,
-                ease: "easeInOut",
-              }}
-            >
-              <div className="text-left ml-32">
-                <h1 className="text-6xl font-extrabold tracking-tight md:text-7xl mb-4">
-                  <div className="text-white">
-                    <div>Hi, I&apos;m</div>
-                  </div>
-                  <div className="relative inline-block w-max">
-                    <div className="absolute left-0 top-[1px] bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500">
-                      <span>Malaka Sadeep</span>
-                    </div>
-                    <div className="relative bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500">
-                      <span>Malaka Sadeep</span>
-                    </div>
-                  </div>
-                </h1>
-                <div className="text-4xl font-normal text-neutral-400 mb-8">
-                  <FlipWords words={words} />
+            <div className="text-left ml-32">
+              <h1 className="text-6xl font-extrabold tracking-tight md:text-7xl mb-4">
+                <div className="text-white">
+                  <div>Hi, I&apos;m</div>
                 </div>
-
-                {/* Moved Description up */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
-                  className="text-neutral-300  max-w-2xl mb-8 -mt-4"
-                >
-                  <TextGenerateEffect words={para} />
-                </motion.div>
-
-                {/* Moved Contact Button up */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7, duration: 0.8 }}
-                  className="flex gap-4"
-                >
-                  <CoolMode>
-                    <button className="p-[3px] relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-                      <div className="flex items-center px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white text-xl hover:bg-transparent">
-                        <span>Click Me</span>
-                        <Lottie
-                          loop
-                          animationData={lottieAnimation}
-                          play
-                          className=" w-12 h-auto ml-6" // Adjust size and margin to fit your design
-                        />
-                      </div>
-                    </button>
-                  </CoolMode>
-                </motion.div>
+                <div className="relative inline-block w-max">
+                  <div className="absolute left-0 top-[1px] bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500">
+                    <span>Malaka Sadeep</span>
+                  </div>
+                  <div className="relative bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500">
+                    <span>Malaka Sadeep</span>
+                  </div>
+                </div>
+              </h1>
+              <div className="text-4xl font-normal text-neutral-400 mb-8">
+                <FlipWords words={words} />
               </div>
-            </motion.div>
+
+              {/* Moved Description up */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className="text-neutral-300  max-w-2xl mb-8 -mt-4"
+              >
+                <TextGenerateEffect words={para} />
+              </motion.div>
+
+              {/* Moved Contact Button up */}
+              <div className="flex gap-4">
+                <CoolMode>
+                  <button className="p-[3px] relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
+                    <div className="flex items-center px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white text-xl hover:bg-transparent">
+                      <span>Click Me</span>
+                      <Lottie
+                        loop
+                        animationData={lottieAnimation}
+                        play
+                        className=" w-12 h-auto ml-6" // Adjust size and margin to fit your design
+                      />
+                    </div>
+                  </button>
+                </CoolMode>
+              </div>
+            </div>
           </LampContainer>
         </div>
 

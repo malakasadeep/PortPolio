@@ -20,7 +20,7 @@ import { createPortal } from "react-dom";
 import { cn } from "@/lib/util";
 import useClickOutside from "@/hooks/useClickOutside";
 import { XIcon } from "lucide-react";
-
+import { Scrollbars } from "react-custom-scrollbars-2";
 interface DialogContextType {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -199,7 +199,7 @@ function DialogContent({ children, className, style }: DialogContent) {
       aria-labelledby={`dialog-title-${uniqueId}`}
       aria-describedby={`dialog-description-${uniqueId}`}
     >
-      {children}
+      <Scrollbars style={{ width: 768, height: 720 }}>{children}</Scrollbars>
     </motion.div>
   );
 }
