@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "@/assets/logo.png";
 import { Highlight } from "./ui/hero-highlight";
+import Lottie from "react-lottie-player";
+import lottieAnimation from "@/assets/Animation - 1731322408129.json";
 
 export function NavbarDemo() {
   return (
@@ -45,8 +47,14 @@ function Navbar({ className }: { className?: string }) {
         <Link href="#contact">
           <button className="p-[3px] relative">
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-            <div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
-              Contact
+            <div className="flex items-center px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
+              <span>Let&apos;s Connect</span>
+              <Lottie
+                loop
+                animationData={lottieAnimation}
+                play
+                className="h-8 w-8 ml-1" // Adjust size and margin to fit your design
+              />
             </div>
           </button>
         </Link>
