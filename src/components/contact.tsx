@@ -139,9 +139,9 @@ export function Contact() {
           Get in Touch
         </h2>
         <p className="text-lg text-neutral-300 max-w-2xl mx-auto">
-          Have a project in mind or just want to say hello? I'm always open to
-          new opportunities and collaborations. Fill out the form below, and
-          I'll get back to you as soon as possible.
+          Have a project in mind or just want to say hello? I&apos;m always open
+          to new opportunities and collaborations. Fill out the form below, and
+          I&apos;ll get back to you as soon as possible.
         </p>
       </div>
 
