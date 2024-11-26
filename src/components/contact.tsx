@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, FormEvent, useRef } from "react";
+import React, { useState, FormEvent } from "react";
 
 import { WorldMap } from "./ui/world-map";
 import Lottie from "react-lottie-player";
