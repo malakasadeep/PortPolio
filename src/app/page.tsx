@@ -4,6 +4,7 @@ import { About } from "@/components/about";
 import { Skills } from "@/components/skils";
 import { Services } from "@/components/services";
 import { Projects } from "@/components/projects";
+import { Contact } from "@/components/contact";
 
 export default function Home() {
   return (
@@ -20,6 +21,8 @@ export default function Home() {
         <Skills />
 
         <Projects />
+
+        <Contact />
       </div>
     </>
   );

@@ -45,7 +45,7 @@ const projectsData: Project[] = [
     title: "Tourism Management System - TourCraft",
     shortDesc:
       "Full-stack MERN application for managing tourism services and bookings",
-    image: "/projectimg/Frame3.png",
+    image: "/projectimg/2.png",
     longDesc:
       "The Tourist Management System, developed as a collaborative project, is designed to revolutionize the travel experience by offering a centralized, user-friendly platform. Tourists can seamlessly organize and book tours, accommodations, vehicles, restaurants, and train tickets, while accessing real-time updates and personalized recommendations. Service providers, including tour agencies, hotel owners, and transport operators, benefit from streamlined management tools, analytics, and increased digital exposure.  Built using a modern tech stack featuring React.js, Node.js, MongoDB, and Firebase, the platform prioritizes security, scalability, and user-centric functionality. Its features include role-based access control, robust authentication with JWT, and integrations with payment systems to facilitate smooth transactions. This innovative solution addresses inefficiencies in the tourism industry, enhances user experience, and aligns with Sri Lanka's goal of becoming a top global tourist destination.",
     keyFeatures: [
@@ -72,7 +72,7 @@ const projectsData: Project[] = [
     title: "Sales Optimization System - FashioNexus",
     shortDesc:
       "AI-powered sales forecasting and Optimization system for fashion retail businesses.",
-    image: "/projectimg/Frame3.png",
+    image: "/projectimg/1.png",
     longDesc:
       "FashioNexus is a comprehensive web-based solution for optimizing sales in the fashion retail industry. Using Python for machine learning models and Flask for prediction APIs, it provides real-time sales insights, automated inventory management, and detailed promotion analytics. Built with the MERN stack, the system ensures a user-friendly interface and seamless operations, helping businesses make data-driven decisions, streamline inventory, and enhance customer satisfaction.",
     keyFeatures: [
@@ -100,7 +100,7 @@ const projectsData: Project[] = [
     title: "Clean Seas Mobile App",
     shortDesc:
       "A mobile application built with Flutter and Firebase, focused on ocean conservation efforts and community engagement in keeping seas clean.",
-    image: "/projectimg/Frame3.png",
+    image: "/projectimg/3.png",
     longDesc:
       "A mobile application built with Flutter and Firebase, focused on ocean conservation efforts and community engagement in keeping seas clean.",
     keyFeatures: [
@@ -149,7 +149,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-auto object-cover"
+            className="w-full h-[320px]  object-cover"
           />
           <div className="p-4">
             <h3 className="text-xl font-semibold text-white mb-2">
@@ -175,7 +175,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-auto object-cover rounded-t-xl"
+            className="w-full h-[620px]  object-cover rounded-t-xl"
           />
           <div className="p-6">
             <DialogTitle className="text-2xl font-bold mb-2">
@@ -222,11 +222,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
 export function Projects(): JSX.Element {
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 py-16">
+    <div className="w-full min-h-screen bg-slate-950 py-16">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-white text-center mb-12">
+        <h2 className="text-3xl font-semibold text-center text-white relative z-20 ">
           Projects
         </h2>
+        <h4 className="text-base font-extralight text-center text-stone-400 relative z-20 mb-4">
+          Click over the cards to explore my projects
+        </h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectsData.map((project) => (
             <ProjectCard key={project.id} project={project} />
