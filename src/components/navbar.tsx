@@ -1,24 +1,35 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Menu, MenuItem } from "./ui/navbar-menu";
 import { cn } from "@/lib/util";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/assets/logo.png";
 import { Highlight } from "./ui/hero-highlight";
-import Lottie from "react-lottie-player";
-import lottieAnimation from "@/assets/Animation - 1731322408129.json";
 
-export function NavbarDemo() {
+export function NavbarDemo({ activeSection }: { activeSection: string }) {
   return (
     <div className="relative w-full flex items-center justify-center">
-      <Navbar className="top-2" />
+      <Navbar className="top-2" activeSection={activeSection} />
     </div>
   );
 }
 
-function Navbar({ className }: { className?: string }) {
-  const [active, setActive] = useState<string | null>(null);
+function Navbar({
+  className,
+  activeSection,
+}: {
+  className?: string;
+  activeSection: string;
+}) {
+  const sections = [
+    "home",
+    "about",
+    "services",
+    "skills",
+    "projects",
+    "contact",
+  ];
 
   return (
     <div
@@ -36,25 +47,27 @@ function Navbar({ className }: { className?: string }) {
         </div>
 
         {/* Menu Items */}
-        <Menu setActive={setActive}>
-          <MenuItem setActive={setActive} active={active} item="Home" />
-          <MenuItem setActive={setActive} active={active} item="About" />
-          <MenuItem setActive={setActive} active={active} item="Projects" />
-          <MenuItem setActive={setActive} active={active} item="Blogs" />
+        <Menu>
+          {sections.map((section) => (
+            <MenuItem
+              key={section}
+              item={section}
+              active={activeSection === section}
+              setActive={() =>
+                document
+                  .getElementById(section)
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            />
+          ))}
         </Menu>
 
         {/* Contact Button */}
         <Link href="#contact">
           <button className="p-[3px] relative">
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-            <div className="flex items-center px-8 py-2  bg-black rounded-[6px]  relative group transition duration-200 text-white hover:bg-transparent">
+            <div className="flex items-center px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent">
               <span>Let&apos;s Connect</span>
-              <Lottie
-                loop
-                animationData={lottieAnimation}
-                play
-                className="h-8 w-8 ml-1" // Adjust size and margin to fit your design
-              />
             </div>
           </button>
         </Link>
