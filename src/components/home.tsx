@@ -84,14 +84,8 @@ export function HomeCon() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 rounded-full blur-3xl opacity-30" />
-            <Image
-              src={img}
-              alt="Malaka Sadeep"
-              width={500}
-              height={500}
-              className=" relative z-10 animate-morph"
-            />
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 rounded-full blur-3xl opacity-10" />
+            <div className="home__img"></div>
           </motion.div>
         </div>
       </section>
