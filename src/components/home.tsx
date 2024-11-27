@@ -2,8 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import img from "@/assets/mainIconsdark.svg";
 import { LampContainer } from "./ui/lamp";
 import { FlipWords } from "./ui/flip-words";
 import { BackgroundLines } from "./ui/background-lines";
