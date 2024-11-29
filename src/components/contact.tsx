@@ -1,15 +1,17 @@
 "use client";
 
 import React, { useState, FormEvent } from "react";
-
 import { WorldMap } from "./ui/world-map";
 import Lottie from "react-lottie-player";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertCircle, CheckCircle2 } from "lucide-react";
+
 import lottieAnimation from "@/assets/Animation - 1731322408129.json";
 import phoneLottie from "@/assets/Animation - 1732650091448.json";
 import mailLottie from "@/assets/Animation - 1732649934839.json";
 import linkedinLottie from "@/assets/Animation - 1732651531048.json";
 
-// Interfaces remain the same as in the original component
+// Interfaces
 interface ContactFormData {
   firstName: string;
   lastName: string;
@@ -32,6 +34,16 @@ export function Contact() {
     message: "",
   });
 
+  const [alertInfo, setAlertInfo] = useState<{
+    type: "success" | "error";
+    message: string;
+    show: boolean;
+  }>({
+    type: "success",
+    message: "",
+    show: false,
+  });
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -45,30 +57,18 @@ export function Contact() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    setAlertInfo({
+      type: "error",
+      message: "This feature is available soon!",
+      show: true,
+    });
 
-      if (response.ok) {
-        alert("Message sent successfully!");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          message: "",
-        });
-      } else {
-        alert("Failed to send message");
-      }
-    } catch (error) {
-      console.error("Submission error:", error);
-      alert("An error occurred");
-    }
+    // Automatically hide alert after 5 seconds
+    setTimeout(() => {
+      setAlertInfo((prev) => ({ ...prev, show: false }));
+    }, 5000);
+
+    // Automatically hide alert after 5 seconds
   };
 
   const contactCards: ContactCardProps[] = [
@@ -94,14 +94,8 @@ export function Contact() {
 
   const mapDots = [
     {
-      start: {
-        lat: 64.2008,
-        lng: -149.4937,
-      }, // Alaska (Fairbanks)
-      end: {
-        lat: 34.0522,
-        lng: -118.2437,
-      }, // Los Angeles
+      start: { lat: 64.2008, lng: -149.4937 }, // Alaska (Fairbanks)
+      end: { lat: 34.0522, lng: -118.2437 }, // Los Angeles
     },
     {
       start: { lat: 64.2008, lng: -149.4937 }, // Alaska (Fairbanks)
@@ -123,21 +117,45 @@ export function Contact() {
       start: { lat: 28.6139, lng: 77.209 }, // New Delhi
       end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
     },
-    // ... (same as previous implementation)
   ];
 
   return (
-    <div className="relative py-20 bg-slate-950 w-full overflow-hidden">
+    <div className="relative min-h-screen flex flex-col bg-slate-950 w-full overflow-hidden">
       {/* World Map Background */}
       <div className="absolute inset-0 z-0">
         <WorldMap dots={mapDots} />
       </div>
 
+      {/* Alert Notification */}
+      <div className="fixed top-4 right-4 z-50 w-full max-w-md">
+        {alertInfo.show && (
+          <Alert
+            variant="destructive"
+            className={`
+              ${
+                alertInfo.type === "success"
+                  ? "bg-green-950/80 border-green-800"
+                  : "bg-red-950/80 border-red-800"
+              }
+              backdrop-blur-lg text-white animate-in slide-in-from-top
+            `}
+          >
+            {alertInfo.type === "success" ? (
+              <CheckCircle2 className="h-4 w-4" />
+            ) : (
+              <AlertCircle className="h-4 w-4" />
+            )}
+            <AlertTitle>
+              {alertInfo.type === "success" ? "Success" : "Error"}
+            </AlertTitle>
+            <AlertDescription>{alertInfo.message}</AlertDescription>
+          </Alert>
+        )}
+      </div>
+
       {/* New Heading Section */}
       <div className="relative z-10 text-center mb-8 px-4">
-        <h2 className="text-3xl font-semibold   text-white mb-4">
-          Get in Touch
-        </h2>
+        <h2 className="text-3xl font-semibold text-white mb-4">Get in Touch</h2>
         <p className="text-lg text-neutral-300 max-w-2xl mx-auto">
           Have a project in mind or just want to say hello? I&apos;m always open
           to new opportunities and collaborations. Fill out the form below, and
@@ -145,9 +163,8 @@ export function Contact() {
         </p>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 flex-grow">
         {/* Contact Information Cards */}
-
         <div className="space-y-6 mt-5">
           {contactCards.map((card, index) => (
             <a
@@ -157,7 +174,7 @@ export function Contact() {
               rel="noopener noreferrer"
               className="block cursor-pointer"
             >
-              <div className=" border border-white/20 rounded-xl p-6 flex items-center space-x-4 transform transition-all duration-300 hover:scale-105 hover:border-white/50 group relative overflow-hidden">
+              <div className="border border-white/20 rounded-xl p-6 flex items-center space-x-4 transform transition-all duration-300 hover:scale-105 hover:border-white/50 group relative overflow-hidden">
                 {/* Animated Background */}
                 <div
                   className={`absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500 z-0`}
@@ -191,7 +208,6 @@ export function Contact() {
         </div>
 
         {/* Contact Form */}
-
         <form onSubmit={handleSubmit} className="bg-transparent p-8 space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
             <input
@@ -248,6 +264,33 @@ export function Contact() {
           </button>
         </form>
       </div>
+
+      {/* Footer */}
+      <footer className="bg-black/30 backdrop-blur-sm py-6 mt-10">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-neutral-300">
+          <div className="text-sm">
+            © {new Date().getFullYear()} Malaka Sadeep. All Rights Reserved.
+          </div>
+          <div className="flex space-x-4 mt-2 md:mt-0">
+            <a
+              href="https://www.linkedin.com/in/sadeeppgm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/sadeepgm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
